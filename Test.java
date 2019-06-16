@@ -169,16 +169,12 @@ public class Test {
 
                 for(int j = 0; j < list.size(); j++) {
 
-                    // zerosIndexes
-                    //if(list.get(i).get(j) == 0) {
                     if(list.get(j).get(i) == 0) {
 
-                        //System.out.printf(YELLOW + "%3d" + RESET, list.get(i).get(j));
                         System.out.printf(YELLOW + "%3d" + RESET, list.get(j).get(i));
 
                     }
                     else {
-                        //System.out.printf(GREEN + "%3d" + RESET, list.get(i).get(j));
                         System.out.printf(GREEN + "%3d" + RESET, list.get(j).get(i));
 
                     }
@@ -195,10 +191,10 @@ public class Test {
 
                     // zerosIndexes
                     if((i == zerosIndexes[i][0] && j == zerosIndexes[i][1]) || (i == zerosIndexes[j][0] && j == zerosIndexes[j][1])) {
-                        System.out.printf(YELLOW + "%3d" + RESET, list.get(i).get(j));
+                        System.out.printf(YELLOW + "%3d" + RESET, list.get(j).get(i));
                     }
                     else {
-                        System.out.printf(GREEN + "%3d" + RESET, list.get(i).get(j));
+                        System.out.printf(GREEN + "%3d" + RESET, list.get(j).get(i));
                     }
                 }
                 System.out.println();
