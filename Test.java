@@ -30,9 +30,11 @@ public class Test {
             int columnCount = 0;
 
             for(int i = 0; i < list.size(); i++) {
-
+                // count zeros in rows
                 for(int j = 0; j < list.get(i).size(); j++) {
+
                     if(list.get(i).get(j) == 0) {
+
                         zerosIndexes[j][0] = i;
                         zerosIndexes[j][1] = j;
                         ++columnCount;
@@ -48,7 +50,9 @@ public class Test {
 
                 // count zeros in column
                 for(int j = 0; j < list.get(i).size(); j++) {
+
                     if(list.get(j).get(i) == 0) {
+
                         zerosIndexes[j][0] = j;
                         zerosIndexes[j][1] = i;
                         ++columnCount;
@@ -61,7 +65,6 @@ public class Test {
                     return isBingo;
                 }
                 columnCount = 0;
-
             }
 
             int count = 0;
@@ -97,7 +100,6 @@ public class Test {
 
                 return isBingo;
             }
-
         return isBingo;
     }
 
@@ -111,7 +113,6 @@ public class Test {
 
             list.add(i);
         }
-
         return list;
     }
 
@@ -146,7 +147,6 @@ public class Test {
                     if(list.get(i).get(j) == n) {
 
                         list.get(i).set(j, 0);
-
                     }
                 }
             }
@@ -172,11 +172,10 @@ public class Test {
                     if(list.get(j).get(i) == 0) {
 
                         System.out.printf(YELLOW + "%3d" + RESET, list.get(j).get(i));
-
                     }
                     else {
-                        System.out.printf(GREEN + "%3d" + RESET, list.get(j).get(i));
 
+                        System.out.printf(GREEN + "%3d" + RESET, list.get(j).get(i));
                     }
                 }
                 System.out.println();
@@ -190,7 +189,8 @@ public class Test {
                 for(int j = 0; j < list.size(); j++) {
 
                     // zerosIndexes
-                    if((i == zerosIndexes[i][0] && j == zerosIndexes[i][1]) || (i == zerosIndexes[j][0] && j == zerosIndexes[j][1])) {
+                    if((i == zerosIndexes[j][1] && j == zerosIndexes[j][0]) || (i == zerosIndexes[i][1] && j == zerosIndexes[i][0])) {
+
                         System.out.printf(YELLOW + "%3d" + RESET, list.get(j).get(i));
                     }
                     else {
@@ -213,7 +213,6 @@ public class Test {
 
             randList.add(i);
         }
-
         // shuffle the list
         Collections.shuffle(randList);
 
@@ -237,7 +236,7 @@ public class Test {
 
             list = getRandomValues(min, max, dimension);
             cardList.add(list);
-            min = max;
+            min = max+1;
             max += 3*dimension;
         }
 
@@ -246,7 +245,6 @@ public class Test {
 
         return cardList;
     }
-
 
     // add asic art when game is over
     public static void asciiArt() {
@@ -312,6 +310,13 @@ public class Test {
 
                     printCard(aCard);
                     asciiArt();
+                    for(int i[]: zerosIndexes) {
+
+                        for(int j: i) {
+                            System.out.print(j + " ");
+                        }
+                        System.out.println();
+                    }
                 }
             }
         }
